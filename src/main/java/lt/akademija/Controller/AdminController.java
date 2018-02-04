@@ -26,7 +26,7 @@ import lt.akademija.Service.AdminService;
 
 @RestController
 @Api(value = "Admin")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value = "/api")
 public class AdminController {
 	

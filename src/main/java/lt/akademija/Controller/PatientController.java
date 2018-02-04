@@ -3,6 +3,7 @@ package lt.akademija.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ import lt.akademija.Service.PatientService;
 
 @RestController
 @Api(value = "Patient")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value = "/api")
 public class PatientController {
 	
