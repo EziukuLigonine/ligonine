@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Min;
 
@@ -20,18 +21,23 @@ public class Pharmacist implements Serializable {
 	private Long id;
 	@NotNull
 	@Size(min=3, max=20)
+	@Pattern(regexp ="[a-zA-Z]+")
 	private String name;
 	@NotNull
 	@Size(min=3, max=20)
+	@Pattern(regexp ="[a-zA-Z]+")
 	private String surname;
 	@NotNull
 	@Size(min=3, max=20)
+    @Pattern(regexp = "\\w")
 	private String companyType;
 	@NotNull
 	@Size(min=3, max=20)
+    @Pattern(regexp = "\\w")
 	private String companyName;
 	@NotNull
 	@Size(min=3, max=20)
+	@Pattern(regexp = "\\w")
 	private String username;
 	@NotNull
 	@Size(min=6, max=20)

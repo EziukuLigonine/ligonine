@@ -9,11 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Size;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Min;
-
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.validator.constraints.UniqueElements;
+
+import javax.validation.constraints.NotBlank;
+
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -23,18 +26,21 @@ public class Doctor implements Serializable {
 	private Long id;
 
 	@NotNull
-	@Size(min=2, max=30)
-	private String name;
-    @NotNull
     @Size(min=3, max=20)
+    @Pattern(regexp ="[a-zA-Z]+")
+	protected String name;
+	@NotNull
+    @Size(min=3, max=20)
+    @Pattern(regexp ="[a-zA-Z]+")
 	private String surname;
-    @NotNull
+	@NotNull
     @Size(min=3, max=30)
 	private String specialisation;
-    @NotNull
+	@NotNull
     @Size(min=3, max=20)
+    @Pattern(regexp = "\\w+")
 	private String username;
-    @NotNull
+	@NotNull
     @Size(min=6, max=30)
 	private String password;
 	@OneToMany(mappedBy = "doctor")

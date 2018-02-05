@@ -8,9 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Size;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,18 +21,22 @@ public class Patient implements Serializable {
 	private Long id;
 	@NotNull
 	@Size(min=3, max=20)
-	private String name;
+	@Pattern(regexp ="[a-zA-Z]+")
+    private String name;
 	@NotNull
 	@Size(min=3, max=20)
+	@Pattern(regexp ="[a-zA-Z]+")
 	private String surname;
 	@NotNull
 	@Size(min=3, max=20)
 	private String birthday;
 	@NotNull
 	@Size(min=3, max=20)
+	@Pattern(regexp = "\\w")
 	private String personalId;
 	@NotNull
 	@Size(min=3, max=20)
+	@Pattern(regexp = "\\w")
 	private String username;
 	@NotNull
 	@Size(min=6, max=20)
